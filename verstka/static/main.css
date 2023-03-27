@@ -1,0 +1,10 @@
+.top-info{
+    text-align: right;
+    background:rgb(82, 93, 187);
+}
+a{
+    color: rgb(27, 26, 26);  
+    margin-right: 10px;
+    text-decoration: none;
+    text-transform: lowercase;
+}
