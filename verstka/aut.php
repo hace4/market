@@ -1,4 +1,6 @@
-
+<?php
+require_once '../config.php' 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +29,13 @@
                 <?php 
                         require '../modules/aut._checker.php';
                         $result = new  aut();
-                        $a=$result->aut_checker();
+                        if($result->aut_checker() == "wrong password"){
+                            echo 'Пароль НЕВЕРЕН';
+                        }elseif($result->aut_checker() == "login_erorr"){
+                            echo ' Логин не верный';
+                        }else if($result->aut_checker() == 'ok') {
+                            $result->autit();
+                        }
                 ?>
                 </div>
         
