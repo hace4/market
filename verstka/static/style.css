@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
-
+html {
+    height:100%;
+  }
 main{
     width: 100%;
     height: 100%;
@@ -16,15 +18,15 @@ main{
     position: absolute;
     top: 25%;
     left: 50%;
-    margin: -50px 0 0 -230px;
+    margin: -50px 0 0 -250px;
     background: linear-gradient(10deg, rgba(96, 103, 246, 0.481) 0%, rgb(115, 217, 230) 50%);
     border-radius: 6px;
     text-align: center;
     box-shadow: 4px 4px 2px 1px rgba(7, 32, 44, 0.609);
 }
-
 body{
-    background: linear-gradient(90deg, rgb(166, 151, 231) 0%, rgb(127, 217, 231) 50%);
+    
+    /*background: linear-gradient(90deg, rgb(166, 151, 231) 0%, rgb(127, 217, 231) 50%);*/
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;   
@@ -41,6 +43,7 @@ form{
     height: 60px;
     margin-left: 100px;
     font-weight: 600;
+
     padding-bottom: 0%;
 }
 .btn{
@@ -56,17 +59,46 @@ form{
 .btn:hover{
     background: rgba(67, 89, 92, 0.922);
 }
-.regist1{
-    width: 376px;
-    height: 180px;
+
+.bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+  
+  .bg3 {
+    animation-duration:5s;
+  }
+  
+  
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
+  .erorr{
+    width: 176px;
+    height: 80px;
     position: absolute;
     top: 25%;
-    left: 81%;
-    margin: -50px 0 0 -230px;
-    background: linear-gradient(190deg, rgba(96, 103, 246, 0.481) 0%, rgb(115, 217, 230) 50%);
+    left: 50%;
+    margin: -50px 0 0 300px;
+    background: linear-gradient(10deg, rgba(96, 103, 246, 0.481) 0%, rgb(115, 217, 230) 50%);
     border-radius: 6px;
     text-align: center;
     box-shadow: 4px 4px 2px 1px rgba(7, 32, 44, 0.609);
-    font-size: larger;
-    font-weight: 600;
-}
+  }

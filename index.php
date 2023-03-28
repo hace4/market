@@ -1,4 +1,4 @@
 <?php
- require_once "verstka/index.html"
+ require_once "verstka/templates/index.html"
 
 ?>
