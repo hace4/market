@@ -17,7 +17,7 @@ require_once '../config.php'
     <div class="bg bg3"></div>
         <main>
             <div class="regist">
-                <h1><b>Регестрация</b></h1>
+                <h1><b>Регистрация</b></h1>
                 <form action="" method="post">
                     <input class="form-control" type="text" name="name" placeholder="your name"> <br>
 
