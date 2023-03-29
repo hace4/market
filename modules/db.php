@@ -11,5 +11,8 @@ class database{
             return [$key['login'], $key['password']];
        }
     }
+    public function get_product(){
+        
+    }
 }
 ?>

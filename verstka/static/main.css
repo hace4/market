@@ -1,20 +1,109 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 .top-info{
+    display: flex;
+    justify-content: space-between;
     text-align: right;
-    background:rgb(82, 93, 187);
-}
+    padding-bottom: 50px;
+    padding-right: 50px;
+    font-weight: bolder;
+    font-size: larger;
+}   
+html {
+    height:100%;
+  }
 a{
     color: rgb(27, 26, 26);  
-    margin-right: 10px;
+    right: 0;
+    text-align: right;
     text-decoration: none;
     text-transform: lowercase;
+
 }
+a:hover{
+    color: aliceblue;
+    background: #36e8ff37;
+    transition: 0.5s;
+}
+*{
+    box-sizing: border-box;
+  }
 main{
-    margin-left: auto;
-    margin-right: auto;
-    width: 700px;
-    height: auto;
-    background: white;
+    height: 100vh;
+    margin-left: 50px;
+    margin-right: 50px;
+    background: rgba(250, 255, 225, 0.707);
 }
 body{
-    background: black;
+    
+    /*background: linear-gradient(90deg, rgb(166, 151, 231) 0%, rgb(127, 217, 231) 50%);*/
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    font-size:large;   
+    min-height: 100vh;
+  }
+
+.bg {
+    animation:slide 10s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:10s;
+  }
+  
+  .bg3 {
+    animation-duration:5s;
+  }
+  
+  
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
+
+.conten1{
+    display: flex;
+    padding: 0;
+
+}
+.content2{
+
+    background: rgba(27, 148, 223, 0.641);
+    margin-right: 10px;
+    height: 200px;
+    width: 200px;
+}
+.tovar{
+    display: flex;
+
+}
+
+@media(max-width:992px){
+  .regist{
+    width: 276px;
+    height: 380px;}
+    .form-control{
+      width: auto;
+      height: auto;
+      font-weight: 600;
+      margin-left: 50px;
+    }
+    .btn{
+      margin-left: 50px;
+  }
+  body{
+    font-size: small;
+  }
 }

@@ -31,9 +31,9 @@ require_once '../config.php'
                         require_once '../modules/checker.php';
                         $check = new reg();
                         if($check->register_check() == "pass_eror"){
-                            echo '<p class="erorr"> Пароль должен быть не меньше 6 символов </p>';
+                            echo 'Пароль должен быть не меньше 6 символов';
                         }elseif($check->register_check() == "login_eror"){
-                            echo '<p class="erorr"> Логин должен быть не меньше 6 символов </p>';
+                            echo 'Логин должен быть не меньше 6 символов ';
                         }else{
                             $check->registr();
                         }
