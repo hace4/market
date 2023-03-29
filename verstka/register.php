@@ -14,7 +14,7 @@ require_once '../config.php'
 <body>
 <header>
         <div class="top-info">
-            <H1 class="logo">Magazin</H1>
+        <a class="logo" href='/'=>Magazin</a>
             <nav class='reg'>
                     <a href="aut.php">signup</a>
                     <a href="register.php">signin</a>
@@ -43,7 +43,7 @@ require_once '../config.php'
                             echo 'Пароль должен быть не меньше 6 символов';
                         }elseif($check->register_check() == "login_eror"){
                             echo 'Логин должен быть не меньше 6 символов ';
-                        }else{
+                        }else if($check->register_check() == "ok") {
                             $check->registr();
                         }
                     ?>

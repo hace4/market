@@ -26,13 +26,13 @@ a{
   color: rgb(0, 0, 0);  
   right: 0;
   text-align: right;
-  text-decoration: none;
+      text-decoration: none;
   text-transform: lowercase;
 
 }
 a:hover{
-  color: rgb(49, 49, 49);
-  background: #36e8ff37;
+  color: rgba(57, 57, 57, 0.697);
+  text-decoration: none;
   transition: 0.5s;
 }
 *{
@@ -41,7 +41,7 @@ a:hover{
 .regist{
     width: 376px;
     height: 380px;
-    background: linear-gradient(10deg, rgba(96, 103, 246, 0.481) 0%, rgb(115, 217, 230) 50%);
+    background: linear-gradient(10deg, rgba(112, 236, 126, 0.481) 0%, rgba(115, 217, 230, 0.652) 50%);
     border-radius: 6px;
     text-align: center;
     transition: 0.5s;
@@ -73,6 +73,7 @@ form{
 .logo{
   margin:0;
   padding: 0;
+  height: auto;
   text-decoration: none;
   text-transform: none;
   font-size: 5rem;
@@ -87,7 +88,7 @@ form{
     font-weight:bolder;
     margin-top: 20px;
     font-size: medium;
-    background: rgb(106, 176, 255);
+    background: rgb(78, 246, 125);
     border-radius: 9px;
     margin-left: 100px;
     transition: 0.5s;

@@ -10,7 +10,6 @@ class aut{
         $answer = new database();
         $result=$answer->get_logi_pass($_POST['login']);
         if($_POST['login'] && $_POST['password'] != ''){
-            echo 'a';
             if($result[0] == $_POST['login']){
                     if($result[1]==$_POST['password']){
                         return "ok";
@@ -18,7 +17,6 @@ class aut{
                     }
                     else{
                         return "password_erorr";
-                        echo "<a href='../index.php'>lol</a>";
                         exit();
                     }
                 }
