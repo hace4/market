@@ -75,15 +75,19 @@ body{
 
 .conten1{
     display: flex;
+    flex-wrap: wrap;
     padding: 0;
+    margin-right: 20px;
 
 }
 .content2{
 
     background: rgba(27, 148, 223, 0.641);
-    margin-right: 10px;
+    margin-left: 25px;
+    margin-top:0px;
     height: 200px;
     width: 200px;
+    box-shadow: 4px 4px 2px 1px rgba(7, 32, 44, 0.609);
 }
 .tovar{
     display: flex;

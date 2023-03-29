@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+
 
 ?>
 <!DOCTYPE html>
@@ -17,6 +17,7 @@ require_once 'config.php';
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
     <main>
+        <header>
         <div class="top-info">
             <H1 class="logo">Magazin</H1>
             <nav class='reg'>
@@ -26,14 +27,16 @@ require_once 'config.php';
 
             
         </div>
-
+        </header>
         <h1>Главная страница</h1>
         <div class="conten1">
             <?php 
-            $gg =['a', 'b', 'B', '<br>', 'B', '<br>', 'B', '<br>', 'B', '<br>'];
-            foreach ($gg as $key) {
-                echo "<H3 class='content2'>". $key . ' </h#>';
-                # code...
+            require_once 'modules/db.php';
+            $l = new database();
+            $a=$l->get_product();
+            for($i=0; $i<count($a); $i++){          
+                $l =$a[$i];
+                echo "<H3 class='content2'>"."<a>$l[name] <br> $l[cost] rub <br> $l[about]</a>" . ' </h#>';
             }
                 ?>
          </div>

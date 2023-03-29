@@ -12,6 +12,15 @@ require_once '../config.php'
     <title>Document</title>
 </head>
 <body>
+<header>
+        <div class="top-info">
+            <H1 class="logo">Magazin</H1>
+            <nav class='reg'>
+                    <a href="aut.php">signup</a>
+                    <a href="register.php">signin</a>
+            </nav>
+        </div>
+        </header>
     <div class="bg"></div>
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
