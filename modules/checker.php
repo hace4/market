@@ -1,34 +1,36 @@
 <?php
-class reg{
-    private $login;
-    private $password;
-    private $name; 
-    public function __construct()
-    {
-        $this->login = $_POST["login"];
-        $this->password = $_POST["password"];
-        $this->name = $_POST["name"];
-    }
-    function register_check(){
-        if($_POST['login'] && $_POST['password'] == ''){
-            if(strlen($this->password) <6){
-                return "pass_eror";
-                exit();
-            } else if(strlen($this->login) < 5){
-                return "login_eror";
-                exit();}
-            else{  
-                return 'ok';
-            }
-        }
+session_start();
+require_once '../modules/db.php';
+$db = new database();
 
+$login = $_POST["login"];
+$password = $_POST["password"];
+$name = $_POST["name"];
+if ($password != null){
+    if(strlen($password) >= 6){
+        if(strlen($login) >=6){
+            if(empty($db->get_logi_pass($login))){
+                $_SESSION["message"] = 'регестрация прошла успешно';
+                $db->set_users($login, $password, $name);
+                header('Location: ../verstka/aut.php');
+            }else{
+                    $_SESSION["message"] = 'Вы зарегстрированы';
+                        header('Location: ../verstka/register.php');
+            }
     }
-    function registr(){
-        $db = new SQLite3("../MARKET_db.db");
-        $db->query("INSERT INTO `users` (`login`, `password`, `F.I.O`) VALUES('$this->login', '$this->password', '$this->name')");
-        $db->close();
-        header('Lcation: /');
-        exit();
-    }
+    if(strlen($login) < 6){
+        $_SESSION["message"] = 'Логин должен быть <br> больше 6 символов';
+        header('Location: ../verstka/register.php');
+    }if(strlen($password) < 6){
+        $_SESSION["message"] = 'Пароль должен быть <br> больше 6 символов';
+        header('Location: ../verstka/register.php');
 }
+}
+else{
+    $_SESSION["message"] = ' Заполните все поля';
+    header('Location: ../verstka/register.php');
+}
+}
+define('MyConst', TRUE);
+
 ?>

@@ -5,7 +5,13 @@ html {
   *{
     box-sizing: border-box;
   }
-
+.erorr{
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
 .top-info{
     display: flex;
     justify-content: space-between;
@@ -26,7 +32,7 @@ a{
   color: rgb(0, 0, 0);  
   right: 0;
   text-align: right;
-      text-decoration: none;
+    text-decoration: none;
   text-transform: lowercase;
 
 }
@@ -41,11 +47,20 @@ a:hover{
 .regist{
     width: 376px;
     height: 380px;
+    text-align: center;
     background: linear-gradient(10deg, rgba(112, 236, 126, 0.481) 0%, rgba(115, 217, 230, 0.652) 50%);
     border-radius: 6px;
-    text-align: center;
     transition: 0.5s;
     box-shadow: 4px 4px 2px 1px rgba(7, 32, 44, 0.609);
+}
+p{
+  position: absolute;
+  margin-left: -20px;
+  width: auto;
+  height: auto;
+  top: 100%;
+  font-weight: 100;
+  transition: 0.5s;
 }
 body{
     
@@ -55,18 +70,17 @@ body{
     font-size:large;   
     min-height: 100vh;
   }
-
 form{
     transform: none;
     margin-top: 25px;
-    position: absolute;
+    position: relative;
+    padding-left: 100px;
 
 }
 .form-control{
     width: auto;
     height: auto;
     font-weight: 600;
-    margin-left: 100px;
     transition: 0.5s;
     
 }
@@ -86,11 +100,12 @@ form{
 }
 .btn{
     font-weight:bolder;
+    width: 180px;
     margin-top: 20px;
+    margin-right: 100px;
     font-size: medium;
     background: rgb(78, 246, 125);
     border-radius: 9px;
-    margin-left: 100px;
     transition: 0.5s;
 }
 .btn:hover{
@@ -131,16 +146,26 @@ form{
   .regist{
     width: 276px;
     height: 380px;}
+    form{
+      padding-left: 50px;
+  
+  }
     .form-control{
       width: auto;
       height: auto;
       font-weight: 600;
-      margin-left: 50px;
+      margin-left: 0px;
     }
-    .btn{
-      margin-left: 50px;
-  }
+
   body{
     font-size: small;
+  }
+  p{
+    margin-left: 7px;
+    width: auto;
+    height: auto;
+    top: 100%;
+    font-weight: 100;
+    transition: 0.5s;
   }
 }

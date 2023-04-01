@@ -28,7 +28,7 @@
             
         </div>
         </header>
-        <h1>Главная страница</h1>
+        <h2 class=typing>Главная страница</h2>
         <div class="conten1">
             <?php 
             require_once 'modules/db.php';
@@ -36,7 +36,7 @@
             $a=$l->get_product();
             for($i=0; $i<count($a); $i++){          
                 $l =$a[$i];
-                echo "<H3 class='content2'>"."<a>$l[name] <br> $l[cost] rub <br> $l[about]</a>" . ' </h#>';
+                echo "<div class='content2'>"." <img src='$l[img]'height='200px' align='top'> <p>$l[name] <br> $l[cost] rub <br> $l[about]</p>" . ' </div>';
             }
                 ?>
          </div>

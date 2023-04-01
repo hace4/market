@@ -30,7 +30,7 @@ html {
     box-sizing: border-box;
   }
 main{
-    height: 100vh;
+    height: 100%;
     margin-left: 50px;
     margin-right: 50px;
     background: rgba(250, 255, 225, 0.707);
@@ -55,7 +55,10 @@ body{
     top:0;
     z-index:-1;
   }
-  
+  img{
+    width: 200px;
+    width: 200px;
+  }
   .bg2 {
     animation-direction:alternate-reverse;
     animation-duration:10s;
@@ -78,23 +81,42 @@ body{
 .conten1{
     display: flex;
     flex-wrap: wrap;
+    justify-content:space-around;
     padding: 0;
     margin-right: 20px;
 
 }
 .content2{
-
-    background: rgba(27, 148, 223, 0.641);
-    margin-left: 25px;
-    margin-top:0px;
-    height: 200px;
-    width: 200px;
-    box-shadow: 4px 4px 2px 1px rgba(7, 32, 44, 0.609);
+  width: 200px;
+  height: 200px;
+  margin-bottom: 25px;
+  margin-left: 2px;
+  margin-right: 2px;
+  transition: 0.5s;
+  padding: 0;
 }
-.tovar{
-    display: flex;
+.content2:hover{
+  box-shadow: 1px 4px 20px 1px rgba(7, 32, 44, 0.609);
+  background: #aeaeae7e;
+  height: 400px;
+}
+p{
+  position: absolute;
+  opacity: 0;
+  height: 1px;
+  width: 0px;
+  font-weight: 900; 
 
 }
+
+.content2:hover p{ 
+  height: auto;
+  width: auto;
+  position: relative;
+  opacity: 1;
+  transition: 2s;
+}
+
 
 @media(max-width:992px){
   .regist{

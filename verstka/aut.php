@@ -1,5 +1,7 @@
 <?php
-require_once '../config.php' 
+session_start();
+require_once '../config.php' ;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,25 +32,21 @@ require_once '../config.php'
 
             <div class="regist">
                 <h1><b>Авторизация</b></h1>
-                <form action="" method="post">
-
+                <form action="..\modules\aut._checker.php" method="post">
+                <p clas='erorr'>
+                    <?php
+                        if($_SESSION["message"]){
+                            echo $_SESSION["message"];
+                        }
+                         unset($_SESSION["message"]);
+                    ?>
+                    </p>
                     <input class="form-control" type="text" name="login" placeholder="login"><br>
 
                     <input class="form-control" type="text" name="password" placeholder="password"><br>
 
                     <button class="btn" type="submit"><b>Войти</b></button>
                 </form>
-                <?php 
-                        require '../modules/aut._checker.php';
-                        $result = new  aut();
-                        if($result->aut_checker() == "wrong password"){
-                            echo 'Пароль НЕВЕРЕН';
-                        }elseif($result->aut_checker() == "login_erorr"){
-                            echo ' Логин не верный';
-                        }else if($result->aut_checker() == 'ok') {
-                            $result->autit();
-                        }
-                ?>
                 </div>
         
         </main>

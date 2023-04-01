@@ -1,30 +1,36 @@
 <?php 
+session_start();
+require_once '../modules/db.php';
+$answer = new database();
+$login = $_POST["login"];
+$password = $_POST["password"];
+if($login && $password != null){
+    $result=$answer->get_logi_pass($login);
+    if($result[0] == $login){
+         if($result[1]==$password){
+                header('Location: ../root2.php');
+                $_SESSION['login'] == $login;
+                exit();
+        }
+        if($result[1]==$password){
+            $_SESSION['login'] == $login;
+            header('Location: /');
+        }
+        else{
+            $_SESSION['message'] = 'Логин или пароль неверны';
+            header('Location: ../verstka/aut.php');
+        }
+    }else{
+        $_SESSION['message'] = 'Логин или пароль неверны';
+        header('Location: ../verstka/aut.php');
+    }
 
-class aut{
-    public function autit(){
-        header('Location: /');
-        exit();
-    }
-    public function aut_checker(){
-        require_once '../modules/db.php';
-        $answer = new database();
-        $result=$answer->get_logi_pass($_POST['login']);
-        if($_POST['login'] && $_POST['password'] != ''){
-            if($result[0] == $_POST['login']){
-                    if($result[1]==$_POST['password']){
-                        return "ok";
-                        exit();
-                    }
-                    else{
-                        return "password_erorr";
-                        exit();
-                    }
-                }
-                else{
-                    return "login_erorr";
-                    exit();
-                }
-            }
-    }
-}
+
+    }else{
+        $_SESSION['message'] = "Заполните все поля";
+        header('Location: ../verstka/aut.php');}
+
+        define('MyConst', TRUE);
+        
+   
 ?>

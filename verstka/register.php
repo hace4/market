@@ -1,5 +1,7 @@
 <?php
-require_once '../config.php' 
+session_start();
+require_once '../config.php' ;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +29,14 @@ require_once '../config.php'
         <main>
             <div class="regist">
                 <h1><b>Регистрация</b></h1>
-                <form action="" method="post">
+                <form action="..\modules\checker.php" method="post">    
+                    <p>       
+                    <?php
+                        if($_SESSION["message"]){
+                            echo $_SESSION["message"];
+                        }
+                        unset($_SESSION["message"]);
+                    ?></p>
                     <input class="form-control" type="text" name="name" placeholder="your name"> <br>
 
                     <input class="form-control" type="text" name="login" placeholder="login"><br>
@@ -36,17 +45,6 @@ require_once '../config.php'
 
                     <button class="btn" type="submit"><b>Зарегистрироваться</b></button>
                 </form>
-                <?php
-                        require_once '../modules/checker.php';
-                        $check = new reg();
-                        if($check->register_check() == "pass_eror"){
-                            echo 'Пароль должен быть не меньше 6 символов';
-                        }elseif($check->register_check() == "login_eror"){
-                            echo 'Логин должен быть не меньше 6 символов ';
-                        }else if($check->register_check() == "ok") {
-                            $check->registr();
-                        }
-                    ?>
             </div>
         
         </main>
