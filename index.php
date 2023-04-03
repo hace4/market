@@ -1,5 +1,5 @@
 <?php
-
+require_once 'config.php' ;
 
 ?>
 <!DOCTYPE html>
@@ -32,11 +32,12 @@
         <div class="conten1">
             <?php 
             require_once 'modules/db.php';
-            $l = new database();
-            $a=$l->get_product();
-            for($i=0; $i<count($a); $i++){          
-                $l =$a[$i];
-                echo "<div class='content2'>"." <img src='$l[img]'height='200px' align='top'> <p>$l[name] <br> $l[cost] rub <br> $l[about]</p>" . ' </div>';
+            $db = new database_products();
+            $products_list=$db->get_product();
+            for($i=0; $i<count($products_list); $i++){          
+                $Products_lis_goodview =$products_list[$i];
+                $name = stristr($Products_lis_goodview['name'], '^', true);
+                echo "<div class='content2'>"." <img src='$Products_lis_goodview[img]'height='200px' align='top'> <p> $name <br> $Products_lis_goodview[cost] rub <br> $Products_lis_goodview[about]</p>" . ' </div>';
             }
                 ?>
          </div>

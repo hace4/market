@@ -29,6 +29,9 @@ if ($password != null){
 else{
     $_SESSION["message"] = ' Заполните все поля';
     header('Location: ../verstka/register.php');
+    header("HTTP/1.0 302 Moved Temporarily", true, 302);
+    header("Location: ".$_SERVER['REQUEST_URI'], true);
+    exit();
 }
 }
 define('MyConst', TRUE);

@@ -1,12 +1,9 @@
 <?php
 class database{
-    private $db;
-    private $db1;
-    public $list;
+    protected $db;
     public function __construct()
     {
         $this->db = new PDO("sqlite:../MARKET_db.db");
-        $this->db1 = new PDO("sqlite:MARKET_db.db");
     }
     public function set_users($login, $password, $name){
         $this->db->query("INSERT INTO `users` (`login`, `password`, `F.I.O`) VALUES('$login', '$password', '$name')");
@@ -18,12 +15,26 @@ class database{
 
        }
     }
+}
+class database_products extends database{
+    public function __construct()
+    {
+        $this->db = new PDO("sqlite:MARKET_db.db");
+    }
     public function get_product(){
-        $result = $this->db1->query("SELECT * FROM `products`")->fetchAll(PDO::FETCH_ASSOC);
+        $result = $this->db->query("SELECT * FROM `products`")->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
     public function add_products($name, $cost, $about, $foto){
-        $this->db1->query("INSERT INTO `products` (`name`, `cost`, `about`, `img`) VALUES ('$name', '$cost', '$about', '$foto')");
+        $this->db->query("INSERT INTO `products` (`name`, `cost`, `about`, `img`) VALUES ('$name', '$cost', '$about', '$foto')");
+    }
+    public function deleteProdutts($name) {
+        $sql = "DELETE FROM `products`  WHERE `name` = '$name'";
+        $stmt=$this->db->prepare($sql);
+ 
+        $stmt->execute();
+ 
+        return $stmt->rowCount();
     }
 }
 ?>

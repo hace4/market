@@ -103,7 +103,7 @@ body{
 p{
   position: absolute;
   opacity: 0;
-  height: 1px;
+  height: 0px;
   width: 0px;
   font-weight: 900; 
 

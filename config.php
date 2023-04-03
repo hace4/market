@@ -5,4 +5,5 @@ const COOKIE_VERSION = '1.0.0';
 const CRYPT_KEY = '';
 const COOKIE_TIME = 60;
 const BLOCK_TIME = 3;
+session_start();
 ?>
