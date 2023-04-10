@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../modules/db.php';
-$db = new database();
+$db = new database('sqlite:../MARKET_db.db');
 
 $login = $_POST["login"];
 $password = $_POST["password"];

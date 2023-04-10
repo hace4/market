@@ -1,7 +1,7 @@
 <?php
 class database{
     protected $db;
-    public function __construct()
+    public function __construct($db_path)
     {
         $this->db = new PDO("sqlite:../MARKET_db.db");
     }
