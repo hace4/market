@@ -16,7 +16,7 @@ class database{
        }
     }
 }
-class database_products extends database{
+class database_products {
     public function __construct()
     {
         $this->db = new PDO("sqlite:MARKET_db.db");
