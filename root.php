@@ -47,14 +47,18 @@ if($_SESSION['login'] != 'root'){
 
     ?>
     <form method="POST">
-    <input type="submit" name="TOVAR_SHOW" value="показать товары" />
+    <input type="submit" name="show_tovar_on_page" value="показать товары" />
+    <input type='submit' name='hide_tovar' value='скрыть'/>
     </form>
     <pre>
     <?php 
-    if( isset( $_POST['TOVAR_SHOW'] ) )
+    if( isset($_POST['show_tovar_on_page'] ) )
     {
        $tovar_list = $db->get_product();
        print_r($tovar_list);
+    }
+    else if (isset($_POST['hide_tovar'])){
+        unset($tovar_list);
     }
     ?>
     </pre>
