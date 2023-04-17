@@ -6,6 +6,8 @@ $db = new database();
 $login = $_POST["login"];
 $password = $_POST["password"];
 $name = $_POST["name"];
+
+
 if ($password != null){
     if(strlen($password) >= 6){
         if(strlen($login) >=6){
@@ -23,8 +25,11 @@ if ($password != null){
         header('Location: ../verstka/register.php');
     }if(strlen($password) < 6){
         $_SESSION["message"] = 'Пароль должен быть <br> больше 6 символов';
-        header('Location: ../verstka/register.php');
-}
+        header('Location: ../verstka/register.php');}
+    if(strlen($name) < 3){
+            $_SESSION["message"] = 'Имя должен быть <br> больше 6 символов';
+            header('Location: ../verstka/register.php');
+    }
 }
 else{
     $_SESSION["message"] = ' Заполните все поля';
