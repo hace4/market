@@ -8,7 +8,7 @@ $password = $_POST["password"];
 $name = $_POST["name"];
 
 
-if ($password != null){
+if (!empty($password)){
     if(strlen($password) >= 6){
         if(strlen($login) >=6){
             if(empty($db->get_logi_pass($login))){
@@ -34,7 +34,6 @@ if ($password != null){
 else{
     $_SESSION["message"] = ' Заполните все поля';
     header('Location: ../verstka/register.php');
-    header("HTTP/1.0 302 Moved Temporarily", true, 302);
     header("Location: ".$_SERVER['REQUEST_URI'], true);
     exit();
 }
