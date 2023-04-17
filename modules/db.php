@@ -17,6 +17,7 @@ class database{
     }
 }
 class database_products {
+    protected $db;
     public function __construct()
     {
         $this->db = new PDO("sqlite:MARKET_db.db");
