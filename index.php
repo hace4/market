@@ -32,7 +32,7 @@ require_once 'config.php' ;
         <div class="conten1">
             <?php 
             require_once 'modules/db.php';
-            $db = new database_products();
+            $db = new database_products('sqlite:../MARKET_db.db');
             $products_list=$db->get_product();
             for($i=0; $i<count($products_list); $i++){          
                 $Products_lis_goodview =$products_list[$i];
