@@ -51,16 +51,14 @@ if($_SESSION['login'] != 'root'){
     <input type='submit' name='hide_tovar' value='скрыть'/>
     </form>
     <pre>
-    <?php 
-    if( isset($_POST['show_tovar_on_page'] ) )
-    {
-       $tovar_list = $db->get_product();
-       print_r($tovar_list);
-    }
-    else if (isset($_POST['hide_tovar'])){
-        unset($tovar_list);
-    }
-    ?>
+        <?php 
+        if(isset($_POST['show_tovar_on_page'] ) ){
+            $tovar_list = $db->get_product();
+            print_r($tovar_list);
+        }else if (isset($_POST['hide_tovar'])){
+            unset($tovar_list);
+        }
+        ?>
     </pre>
     <br>
     <a href="index.php">Вернуться на главную страницу</a>
