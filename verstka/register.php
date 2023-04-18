@@ -16,7 +16,7 @@ require_once '../config.php' ;
 <body>
 <header>
         <div class="top-info">
-        <a class="logo" href='/'>Magazin</a>
+        <a class="logo" href='../index.php'>Magazin</a>
             <nav class='reg'>
                     <a href="aut.php">signup</a>
                     <a href="register.php">signin</a>

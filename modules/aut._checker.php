@@ -16,7 +16,7 @@ if ($login && $password) {
             if ($login == 'root') {
                 header('Location: ../root.php');
             } else {
-                header('Location: /');}
+                header('Location: ../index.php');}
 
         } else {
             $_SESSION['message'] = 'Логин или пароль неверны';
