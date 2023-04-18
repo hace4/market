@@ -1,6 +1,5 @@
 <?php
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,21 +25,16 @@
                     <a href="verstka\register.php">signin</a>
             </nav>
 
-            
+
         </div>
         </header>
         <h2 class=typing>Главная страница</h2>
         <div class="conten1">
-            <?php 
-            require_once 'modules/db.php';
-            $db = new database_products();
-            $products_list=$db->get_product();
-            for($i=0; $i<count($products_list); $i++){          
-                $Products_lis_goodview =$products_list[$i];
-                $name = stristr($Products_lis_goodview['name'], '^', true);
-                echo "<div class='content2'>"." <img src='$Products_lis_goodview[img]'height='200px' align='top'> <p> $name <br> $Products_lis_goodview[cost] rub <br> $Products_lis_goodview[about]</p>" . '<a href="">Добавить в корзину</a>'. ' </div>';
-            }
-                ?>
+            <?php
+            require_once 'modules/index_view.php';
+            $show = new show_products();
+            $show->show();
+            ?>
          </div>
     </main>
 </body>
