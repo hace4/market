@@ -30,20 +30,21 @@ require_once '../config.php' ;
             <div class="regist">
                 <h1><b>Регистрация</b></h1>
                 <form action="..\modules\checker.php" method="post">    
-                    <p>       
-                    <?php
-                        if($_SESSION["message"]){
-                            echo $_SESSION["message"];
-                        }
-                        unset($_SESSION["message"]);
-                    ?></p>
+
                     <input class="form-control" type="text" name="name" placeholder="your name"> <br>
 
                     <input class="form-control" type="text" name="login" placeholder="login"><br>
 
                     <input class="form-control" type="text" name="password" placeholder="password"><br>
 
-                    <button class="btn" type="submit"><b>Зарегистрироваться</b></button>
+                    <button class="btn" type="submit"><b>Зарегистрироваться</b></button>               
+                        <p>       
+                    <?php
+                        if($_SESSION["message"]){
+                            echo $_SESSION["message"];
+                        }
+                        unset($_SESSION["message"]);
+                    ?></p>
                 </form>
             </div>
         

@@ -33,7 +33,6 @@ main{
     height: 100%;
     margin-left: 50px;
     margin-right: 50px;
-    background: rgba(250, 255, 225, 0.707);
 }
 body{
     
@@ -86,6 +85,12 @@ body{
     margin-right: 20px;
 
 }
+.content2 a{
+  opacity: 0;
+  height: 0px;
+  width: 0px;
+  transition: 2s;
+}
 .content2{
   width: 200px;
   height: 200px;
@@ -98,7 +103,7 @@ body{
 .content2:hover{
   box-shadow: 1px 4px 20px 1px rgba(7, 32, 44, 0.609);
   background: #aeaeae7e;
-  height: 400px;
+  height: 450px;
 }
 p{
   position: absolute;
@@ -115,6 +120,11 @@ p{
   position: relative;
   opacity: 1;
   transition: 2s;
+}
+.content2:hover a{
+  opacity: 1;
+  margin-top: 20px;
+  background-color: #d2d0d07e;
 }
 
 
