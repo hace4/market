@@ -1,4 +1,5 @@
 <?php
+/* сделай в ооп */
 session_start();
 require_once '../modules/db.php';
 $db = new database();
