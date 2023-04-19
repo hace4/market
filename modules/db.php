@@ -45,3 +45,4 @@ class database_products
         return $stmt->rowCount();
     }
 }
+?>
