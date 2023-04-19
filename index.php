@@ -21,6 +21,8 @@ session_start()
     <main>
         <header>
             <div class="top-info">
+
+            
                 <H1 class="logo">Magazin</H1>
                 <?php
                 if ($_SESSION['login'] == 'root') {
