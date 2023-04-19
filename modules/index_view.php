@@ -17,5 +17,12 @@ class show_products
             echo "<div class='content2'>" . " <img src='$Products_lis_goodview[img]'height='200px' align='top'> <p> $name </p> <p>$Products_lis_goodview[cost] rub </p> <p>$Products_lis_goodview[about]</p>" . ' </div>';
         }
     }
+    public function root_show()
+    {
+        for ($i = count($this->products_list); $i >= 0; $i--) {
+            $Products_lis_goodview = $this->products_list[$i];
+            echo " <img src='$Products_lis_goodview[img]'height='200px' align='top'><p> $Products_lis_goodview[id] </p><p> $Products_lis_goodview[name] </p> <p>$Products_lis_goodview[cost] rub </p> <p>$Products_lis_goodview[about]</p>";
+        }
+    }
 }
 ?>

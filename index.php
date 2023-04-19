@@ -20,6 +20,11 @@ session_start()
         <header>
         <div class="top-info">
             <H1 class="logo">Magazin</H1>
+            <?php
+                if($_SESSION['login'] == 'root'){
+                    echo "<a href='root.php'> админка <a/>";
+                }
+            ?>
             <nav class='reg'>
             <a href="">В корзине</a>
                     <a href="verstka\aut.php">signup</a>
