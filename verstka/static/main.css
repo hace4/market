@@ -85,41 +85,31 @@ body{
     margin-right: 20px;
 
 }
-.content2 a{
-  opacity: 0;
-  height: 0px;
-  width: 0px;
-  transition: 2s;
-}
+
 .content2{
   width: 200px;
   height: 200px;
   margin-bottom: 25px;
   margin-left: 2px;
   margin-right: 2px;
+  margin-top: 10px;
+  margin-bottom: 0;
   transition: 0.5s;
-  padding: 0;
 }
 .content2:hover{
   box-shadow: 1px 4px 20px 1px rgba(7, 32, 44, 0.609);
   background: #aeaeae7e;
   height: 450px;
 }
-p{
-  position: absolute;
-  opacity: 0;
-  height: 0px;
-  width: 0px;
-  font-weight: 900; 
-
-}
-
-.content2:hover p{ 
-  height: auto;
-  width: auto;
-  position: relative;
-  opacity: 1;
-  transition: 2s;
+.content2 p {   
+  visibility:hidden;
+  opacity:0;
+  transition:opacity 1s linear;
+  
+  }
+.content2:hover p {
+  visibility:visible;
+  opacity:1;  
 }
 .content2:hover a{
   opacity: 1;

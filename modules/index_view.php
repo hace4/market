@@ -14,7 +14,7 @@ class show_products
         for ($i = 0; $i < count($this->products_list); $i++) {
             $Products_lis_goodview = $this->products_list[$i];
             $name = stristr($Products_lis_goodview['name'], '^', true);
-            echo "<div class='content2'>" . " <img src='$Products_lis_goodview[img]'height='200px' align='top'> <p> $name <br> $Products_lis_goodview[cost] rub <br> $Products_lis_goodview[about]</p>" . '<a href="">Добавить в корзину</a>' . ' </div>';
+            echo "<div class='content2'>" . " <img src='$Products_lis_goodview[img]'height='200px' align='top'> <p> $name </p> <p>$Products_lis_goodview[cost] rub </p> <p>$Products_lis_goodview[about]</p>" . ' </div>';
         }
     }
 }
