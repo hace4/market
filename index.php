@@ -1,5 +1,6 @@
 <?php
-session_start()
+session_start();
+require_once 'config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,18 +23,29 @@ session_start()
         <header>
             <div class="top-info">
 
-            
+
                 <H1 class="logo">Magazin</H1>
-                <?php
+
+                <nav class='reg'> <?php
                 if ($_SESSION['login'] == 'root') {
                     echo "<a href='root.php'> админка <a/>";
                 }
-                ?>
-                <nav class='reg'>
+                ?> <?php            
+                if (!isset($_SESSION['login'])) {
+                echo '<a href="verstka\aut.php">signup</a>';
+                echo '<a href="verstka\register.php">signin</a>';
+                }
+                else{
+                    echo "<div class=exit><a href=verstka\aut.php>$_SESSION[login]</a>". "<form action=''method='post' ><input  type=submit name=exit value=выйти></form></div>";
+                }
+                if(isset($_POST['exit'])){
+                    unset($_SESSION['login']);
+                }?>
                     <a href="">В корзине</a>
-                    <a href="verstka\aut.php">signup</a>
-                    <a href="verstka\register.php">signin</a>
                 </nav>
+
+
+
 
 
             </div>
