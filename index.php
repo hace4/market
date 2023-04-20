@@ -26,24 +26,26 @@ require_once 'config.php';
 
                 <H1 class="logo">Magazin</H1>
 
-                <nav class='reg'> <?php
-                if ($_SESSION['login'] == 'root') {
-                    echo "<a href='root.php'> админка <a/>";
-                }
-                ?> <?php            
-                if (!isset($_SESSION['login'])) {
-                echo '<a href="verstka\aut.php">signup</a>';
-                echo '<a href="verstka\register.php">signin</a>';
-                }
-                else{
-                    echo "<div class=exit><a href=verstka\aut.php>$_SESSION[login]</a>". "<form action=''method='post' ><input  type=submit name=exit value=выйти></form></div>";
-                }
-                if(isset($_POST['exit'])){
-                    unset($_SESSION['login']);
-                }?>
-                    <a href="">В корзине</a>
-                </nav>
+                <nav class='reg'>
 
+                    <?php
+                    if ($_SESSION['login'] == 'root') {
+                        echo "<a href='root.php'> админка <a/>";
+                    }
+                    ?> <?php
+
+                    if (!isset($_SESSION['login'])) {
+                        echo '<a href="verstka\aut.php">signup</a>';
+                        echo '<a href="verstka\register.php">signin</a>';
+                    }else {
+                        echo "<a href=''>корзина</a>";
+                        echo "<div class=exit><a class=exit href=verstka\aut.php>$_SESSION[login]</a><form action=''method='post' ><input  type=submit name=exit value=выйти></form></div>";
+                    }
+                    if (isset($_POST['exit'])) {
+                        unset($_SESSION['login']);
+                    } ?>
+
+                </nav>
 
 
 

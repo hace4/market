@@ -2,7 +2,7 @@
 
 .top-info {
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   text-align: right;
   padding-bottom: 50px;
   padding-right: 50px;
@@ -10,27 +10,10 @@
   font-size: larger;
 }
 
+
 html {
   height: 100%;
 }
-
-a {
-  padding: 0;
-  margin: 0;
-  color: rgb(0, 0, 0);
-  right: 0;
-  text-align: right;
-  text-decoration: none;
-  text-transform: lowercase;
-
-}
-
-a:hover {
-  color: rgba(57, 57, 57, 0.697);
-  text-decoration: none;
-  transition: 0.5s;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -40,7 +23,6 @@ main {
   margin-left: 50px;
   margin-right: 50px;
 }
-
 body {
 
   /*background: linear-gradient(90deg, rgb(166, 151, 231) 0%, rgb(127, 217, 231) 50%);*/
@@ -61,7 +43,27 @@ body {
   top: 0;
   z-index: -1;
 }
+.reg{
+  width: auto;  
+  align-content: right;
+}
+  a{
+  margin-right: 10px;  padding: 0;
+  color: rgb(0, 0, 0);
+  right: 0;
+  text-decoration: none;
+  text-transform: lowercase;
+}
 
+a:hover {
+  color: rgba(57, 57, 57, 0.697);
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+* {
+  box-sizing: border-box;
+}
 img {
   width: 200px;
   width: 200px;
@@ -97,6 +99,7 @@ img {
 }
 
 .content2 {
+  box-shadow: 1px 4px 2px 1px rgba(7, 32, 44, 0.467);
   width: 200px;
   height: 200px;
   margin-bottom: 25px;
@@ -108,7 +111,7 @@ img {
 }
 
 .content2:hover {
-  box-shadow: 1px 4px 20px 1px rgba(7, 32, 44, 0.609);
+  box-shadow: 1px 4px 20px 1px rgba(7, 32, 44, 0.779);
   background: #aeaeae7e;
   height: 450px;
 }
@@ -130,21 +133,24 @@ img {
   margin-top: 20px;
   background-color: #d2d0d07e;
 }
-
-.exit form {   position: absolute;}
 .exit input{ 
-   border: 0;
+  border: 0;
   font-weight: bold;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 1s linear;
+  transition: opacity 0.5s linear;
   border-radius: 5px;
   background: #4f4f4f4c;
 }
-
 .exit:hover input {
   visibility: visible;
   opacity: 1;
+  display: block;
+}
+.exit:hover a{
+  color: rgba(57, 57, 57, 0.697);
+  text-decoration: none;
+  transition: 0.5s;
 }
 @media(max-width:992px) {
   .regist {
