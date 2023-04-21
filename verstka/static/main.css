@@ -147,6 +147,7 @@ img {
   opacity: 1;
   display: block;
 }
+
 .exit:hover a{
   color: rgba(57, 57, 57, 0.697);
   text-decoration: none;
