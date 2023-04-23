@@ -19,7 +19,7 @@ require_once "../config.php" ?>
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
     <div class="top-info">
-        <a class="logo" href='../index.php'=>Magazin</a>
+        <a class="logo" href='../index.php'>Magazin</a>
         <nav class='reg'>
             <a class='reg1' href="aut.php">signup</a>
             <a class='reg1' href="register.php">signin</a>
@@ -46,4 +46,4 @@ require_once "../config.php" ?>
 
             </div>
 
-    </main>
+    </main></body></html>

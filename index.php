@@ -38,7 +38,7 @@ require_once 'config.php';
                         echo '<a href="verstka\aut.php">signup</a>';
                         echo '<a href="verstka\register.php">signin</a>';
                     }else {
-                        echo "<a href=''>корзина</a>";
+                        echo "<a href='verstka\basket.php'>корзина</a>";
                         echo "<div class=exit><a class=exit href=verstka\aut.php>$_SESSION[login]</a><form action=''method='post' ><input  type=submit name=exit value=выйти></form></div>";
                     }
                     if (isset($_POST['exit'])) {

@@ -9,7 +9,21 @@
   font-weight: bolder;
   font-size: larger;
 }
+.logo {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  text-decoration: none;
+  text-transform: none;
+  font-size: 5rem;
+  font-weight: 400;
 
+}
+
+.logo:hover {
+  text-decoration: none;
+  text-transform: none;
+}
 
 html {
   height: 100%;
@@ -47,7 +61,7 @@ body {
   width: auto;  
   align-content: right;
 }
-  a{
+a{
   margin-right: 10px;  padding: 0;
   color: rgb(0, 0, 0);
   right: 0;
@@ -126,6 +140,7 @@ img {
 .content2:hover p {
   visibility: visible;
   opacity: 1;
+  transition: 1s;
 }
 
 .content2:hover a {

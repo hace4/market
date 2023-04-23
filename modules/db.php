@@ -19,6 +19,13 @@ class database
         }
     }
 }
+class basket_product extends database{
+    public function get_product_with_id($id)
+    {
+        $result = $this->db->query("SELECT * FROM `products` WHERE `id`='$id'")->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+}
 class database_products
 {
     protected $db;
@@ -31,6 +38,7 @@ class database_products
         $result = $this->db->query("SELECT * FROM `products`")->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
     public function add_products($name, $cost, $about, $foto)
     {
         $this->db->query("INSERT INTO `products` (`name`, `cost`, `about`, `img`) VALUES ('$name', '$cost', '$about', '$foto')");

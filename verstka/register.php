@@ -42,12 +42,9 @@ require_once '../config.php';
 
                 <button class="btn" type="submit"><b>Зарегистрироваться</b></button>
                 <p>
-                    <?php
-                    if ($_SESSION["message"]) {
-                        echo $_SESSION["message"];
-                    }
-                    unset($_SESSION["message"]);
-                    ?></p>
+                <?php echo $_SESSION['message'];
+                $_SESSION['message'] = '' ?>
+                </p>
             </form>
         </div>
 
