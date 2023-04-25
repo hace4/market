@@ -28,11 +28,13 @@ class basket_product extends database{
 }
 class database_products
 {
+
     protected $db;
     public function __construct()
     {
         $this->db = new PDO("sqlite:MARKET_db.db");
     }
+
     public function get_product()
     {
         $result = $this->db->query("SELECT * FROM `products`")->fetchAll(PDO::FETCH_ASSOC);

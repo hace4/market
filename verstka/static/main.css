@@ -9,6 +9,22 @@
   font-weight: bolder;
   font-size: larger;
 }
+.content4{
+  display: flex;  
+  flex-direction: column;}
+.content3{
+  display: flex;  
+  flex-direction:row;
+  width: auto;
+  height: auto;
+  margin-bottom: 7px;
+  margin-right: 100px;  
+}
+.content3 p{
+font-weight: bolder;
+font-size:medium;
+margin-right: 15px;
+}
 .logo {
   margin: 0;
   padding: 0;
@@ -131,6 +147,7 @@ img {
 }
 
 .content2 p {
+  display: none;
   visibility: hidden;
   opacity: 0;
   transition: opacity 1s linear;
@@ -138,6 +155,7 @@ img {
 }
 
 .content2:hover p {
+  display: flex;
   visibility: visible;
   opacity: 1;
   transition: 1s;

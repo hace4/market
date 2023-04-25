@@ -28,11 +28,11 @@ session_start();
             ?> <?php
 
             if (!isset($_SESSION['login'])) {
-                echo '<a href="verstka\aut.php">signup</a>';
-                echo '<a href="verstka\register.php">signin</a>';
+                echo '<a href="aut.php">signup</a>';
+                echo '<a href="register.php">signin</a>';
             }else {
                 echo "<a href='..\index.php' class=exit> главная</a>";
-                echo "<div class=exit><a class=exit href=verstka\aut.php>$_SESSION[login]</a><form action=''method='post' ><input  type=submit name=exit value=выйти></form></div>";
+                echo "<div class=exit><a class=exit href=aut.php>$_SESSION[login]</a><form action=''method='post' ><input  type=submit name=exit value=выйти></form></div>";
             }
             if (isset($_POST['exit'])) {
                 unset($_SESSION['login']);
@@ -44,11 +44,13 @@ session_start();
     </div>
     </header>
     <main>
+        <div class="conten4">
             <?php
-            require_once '../modules/index_view.php';
+            require_once "../modules\basket_viiew.php";
             $show = new show_basket();
             $show->show();
             ?>
+        </div>
     </main>
 </body>
 </html>

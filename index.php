@@ -56,8 +56,15 @@ require_once 'config.php';
         <div class="conten1">
             <?php
             require_once 'modules/index_view.php';
+            require_once 'modules/basket_db.php';
+            $bask = new basket_db_in_index();
             $show = new show_products();
             $show->show();
+            if(is_numeric($_SERVER['REQUEST_URI'][-1])){
+                $bask->add_products_to($_SERVER['REQUEST_URI'][-1]);
+                header('Location: index.php');
+                
+            }
             ?>
         </div>
     </main>
