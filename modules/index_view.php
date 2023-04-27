@@ -28,7 +28,7 @@ class show_products
     }
     public function root_show()
     {   
-        for ($i = count($this->products_list); $i >= 0; $i--) {
+        for ($i = count($this->products_list)-1; $i >= 0; $i--) {
             $Products_lis_goodview = $this->products_list[$i];
             echo " <img src='$Products_lis_goodview[img]'height='200px' align='top'><p> $Products_lis_goodview[id] </p><p> $Products_lis_goodview[name] </p> <p>$Products_lis_goodview[cost] rub </p> <p>$Products_lis_goodview[about]</p>";
         }

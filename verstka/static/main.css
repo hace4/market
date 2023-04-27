@@ -129,7 +129,6 @@ img {
 }
 
 .content2 {
-  box-shadow: 1px 4px 2px 1px rgba(7, 32, 44, 0.467);
   width: 200px;
   height: 200px;
   margin-bottom: 25px;
@@ -143,7 +142,7 @@ img {
 .content2:hover {
   box-shadow: 1px 4px 20px 1px rgba(7, 32, 44, 0.779);
   background: #aeaeae7e;
-  height: 450px;
+  height: auto;
 }
 
 .content2 p {

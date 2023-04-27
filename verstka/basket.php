@@ -22,9 +22,10 @@ session_start();
         <nav class='reg'>
 
             <?php
+            if(isset($_SESSION['login'])){
             if ($_SESSION['login'] == 'root') {
                 echo "<a href='root.php'> админка <a/>";
-            }
+            }}
             ?> <?php
 
             if (!isset($_SESSION['login'])) {
@@ -46,9 +47,16 @@ session_start();
     <main>
         <div class="conten4">
             <?php
-            require_once "../modules\basket_viiew.php";
-            $show = new show_basket();
-            $show->show();
+            if(isset($_SESSION['login'])){
+                require_once "../modules\basket_viiew.php";
+                $view = new show_basket($_SESSION['login']);
+                $view->show();
+                if(is_numeric($_SERVER['REQUEST_URI'][-1])){
+                    $view->delete($_SERVER['REQUEST_URI'][-1], $_SESSION['login']);
+                    header('Location: ../verstka/basket.php');
+                    
+                }
+        }
             ?>
         </div>
     </main>

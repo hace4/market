@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once "config.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +42,8 @@ require_once 'config.php';
                         echo "<div class=exit><a class=exit href=verstka\aut.php>$_SESSION[login]</a><form action=''method='post' ><input  type=submit name=exit value=выйти></form></div>";
                     }
                     if (isset($_POST['exit'])) {
-                        unset($_SESSION['login']);
+                        unset($_SESSION['login']); 
+                        header('Location: index.php');
                     } ?>
 
                 </nav>
@@ -61,9 +62,7 @@ require_once 'config.php';
             $show = new show_products();
             $show->show();
             if(is_numeric($_SERVER['REQUEST_URI'][-1])){
-                $bask->add_products_to($_SERVER['REQUEST_URI'][-1]);
-                header('Location: index.php');
-                
+                $bask->add_products_to($_SERVER['REQUEST_URI'][-1], $_SESSION['login']);                
             }
             ?>
         </div>

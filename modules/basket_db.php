@@ -5,15 +5,15 @@ class basket_db_in_index{
     {
         $this->db = new PDO("sqlite:MARKET_db.db");
     }
-    public function get_product()
+    public function get_product($login)
     {
-        $result = $this->db->query("SELECT * FROM `basket`")->fetchAll(PDO::FETCH_ASSOC);
+        $result = $this->db->query("SELECT * FROM `basket` WHERE `login` ='$login'")->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
     
-    public function add_products_to($id_prod,)
+    public function add_products_to($id_prod,$login)
     {
-        $this->db->query("INSERT INTO `basket` (`id_prod`) VALUES ('$id_prod')");
+        $this->db->query("INSERT INTO `basket` (`id_prod`, `login`) VALUES ('$id_prod', '$login')");
     }
     public function deleteProdutts($id_prod)
     {
@@ -34,5 +34,14 @@ class basket_db extends basket_db_in_index{
     public function __construct()
     {
         $this->db = new PDO("sqlite:../MARKET_db.db");;
+    }
+    public function deleteProducts($id, $login)
+    {
+        $sql = "DELETE FROM `basket`  WHERE `id_prod` = '$id' AND `login` ='$login'" ;
+        $stmt = $this->db->prepare($sql);
+
+        $stmt->execute();
+
+        return $stmt->rowCount();
     }
 } ?>
