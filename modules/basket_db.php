@@ -33,7 +33,7 @@ class basket_db_in_index{
 class basket_db extends basket_db_in_index{
     public function __construct()
     {
-        $this->db = new PDO("sqlite:../MARKET_db.db");;
+        $this->db = new PDO("sqlite:../MARKET_db.db");
     }
     public function deleteProducts($id, $login)
     {
