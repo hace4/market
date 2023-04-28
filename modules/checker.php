@@ -1,43 +1,63 @@
 <?php
+
 session_start();
 require_once '../modules/db.php';
-$db = new database();
-
-$login = $_POST["login"];
-$password = $_POST["password"];
-$name = $_POST["name"];
-
-
-if (!empty($password)){
-    if(strlen($password) >= 6){
-        if(strlen($login) >=6){
-            if(empty($db->get_logi_pass($login))){
-                $_SESSION["message"] = 'регестрация прошла успешно';
-                $db->set_users($login, $password, $name);
-                header('Location: ../verstka/aut.php');
-            }else{
-                    $_SESSION["message"] = 'Вы зарегстрированы';
-                        header('Location: ../verstka/register.php');
-            }
+class reg_check
+{
+    private $db;
+    private $login;
+    private $password;
+    private $name;
+    public function __construct()
+    {
+        $this->db = new database();
+        $this->login = $_POST["login"];
+        $this->password = $_POST["password"];
+        $this->name = $_POST["name"];
     }
-    if(strlen($login) < 6){
-        $_SESSION["message"] = 'Логин должен быть <br> больше 6 символов';
-        header('Location: ../verstka/register.php');
-    }if(strlen($password) < 6){
-        $_SESSION["message"] = 'Пароль должен быть <br> больше 6 символов';
-        header('Location: ../verstka/register.php');}
-    if(strlen($name) < 3){
-            $_SESSION["message"] = 'Имя должен быть <br> больше 6 символов';
+    private function Availability_check()
+    {
+        if (($this->password || $this->name || $this->login)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    private function registred_users()
+    {
+        if (empty($this->db->get_logi_pass($this->login))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    private function correctness_login_password_check()
+    {
+        if (strlen($this->password) >= 6 && strlen($this->login) >= 6) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function regist_user()
+    {
+        if ($this->Availability_check() && $this->registred_users() && $this->correctness_login_password_check()) {
+            $_SESSION["message"] = 'регестрация прошла успешно';
+            $this->db->set_users($this->login, $this->password, $this->name);
+            header('Location: ../verstka/aut.php');
+        } else if (!$this->registred_users() && $this->correctness_login_password_check()  && $this->Availability_check()) {
+            $_SESSION["message"] = 'Вы уже зарегстрированы';
             header('Location: ../verstka/register.php');
+        } else if ($this->Availability_check() && $this->registred_users() && !$this->correctness_login_password_check()) {
+            $_SESSION["message"] = 'Логин должен быть <br> больше 6 символов';
+            header('Location: ../verstka/register.php');
+        } else if (!$this->Availability_check()) {
+            $_SESSION["message"] = ' Заполните все поля';
+            header('Location: ../verstka/register.php');
+            exit();
+        }
     }
 }
-else{
-    $_SESSION["message"] = ' Заполните все поля';
-    header('Location: ../verstka/register.php');
-    header("Location: ".$_SERVER['REQUEST_URI'], true);
-    exit();
-}
-}
-define('MyConst', TRUE);
-
+$regist = new reg_check();
+$regist->regist_user();
 ?>

@@ -1,39 +1,62 @@
-<?php 
-session_start();
-require_once '../modules/db.php';
-$answer = new database();
-$login = $_POST["login"];
-$password = $_POST["password"];
+<?php
+    session_start();
+    require_once '../modules/db.php';
+class aut_checker
+{
+    public $login;
+    public $password;
+    public $answer;
+    public $result;
+    public function __construct()
+    {
+        $this->answer = new database();
+        $this->login = $_POST["login"];
+        $this->password = $_POST["password"];
+        $this->result = $this->answer->get_logi_pass($this->login);
+    }
+    private function Availability_check()
+    {
+        if (!empty($this->login) and !empty($this->password)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    private function correctness_login_check()
+    {
+        if ($this->Availability_check()) {
 
+            if ($this->result[0] == $this->login) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+    private function correctness_password_check()
+    {
+        if ($this->result[1] == $this->password) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-if($login && $password != null){
-
-    $result=$answer->get_logi_pass($login);
-
-    if($result[0] == $login){
-
-        if($result[1]==$password){
-            $_SESSION['login'] = $login;
-            
-            if($login == 'root'){
-                header('Location: ../root.php');
-            }else{
-                header('Location: /');}
-
-        }else{
+    public function check()
+    {
+        if ($this->correctness_password_check() and $this->correctness_login_check()) {
+            header('Location: ../index.php');
+            $_SESSION['login'] = $this->result[0];
+        } else if (!$this->correctness_password_check() or !$this->correctness_login_check() and $this->Availability_check()) {
             $_SESSION['message'] = 'Логин или пароль неверны';
-            header('Location: ../verstka/aut.php');}
+            header('Location: ../verstka/aut.php');
+        } else if (!$this->Availability_check()) {
+            $_SESSION['message'] = "Заполните все поля";
+            header('Location: ../verstka/aut.php');
+        }
+    }
+}
 
-    }else{
-        $_SESSION['message'] = 'Логин или пароль неверны';
-        header('Location: ../verstka/aut.php');}
-
-}else{
-    $_SESSION['message'] = "Заполните все поля";
-    header('Location: ../verstka/aut.php');
-    header("HTTP/1.0 302 Moved Temporarily", true, 302);
-    header("Location: ".$_SERVER['REQUEST_URI'], true);
-    exit();}
-
-   
+    $access = new aut_checker();
+    $access->check();
 ?>
