@@ -1,8 +1,8 @@
 <?php
 class show_basket{
     private $bas_db;  
-    protected $products_list;
-    protected $PATH;
+    private $products_list;
+    private $PATH;
     public function __construct($login)
     {          
         require_once 'basket_db.php';     
@@ -24,6 +24,8 @@ class show_basket{
             ."<p class='about1'>$Products_lis_goodview[cost] rub </p>"
             ."<p class='about'>$Products_lis_goodview[about]</p>"
             ."<a href='?cart=add&id=$id'data-id=$id>Удалить</a>"
+            ."<a href='?cart=add&id=$id'data-id=$id>-</a>"
+            ."<a href='?cart=add&id=$id'data-id=$id>+</a>"
             ."</div>";
 
         }

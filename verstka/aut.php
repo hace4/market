@@ -46,4 +46,6 @@ require_once "../config.php" ?>
 
             </div>
 
-    </main></body></html>
+    </main>
+    </body>
+</html>

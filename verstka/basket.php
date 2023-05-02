@@ -18,7 +18,7 @@ session_start();
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
     <div class="top-info">
-        <a class="logo" href='../index.php'=>Magazin</a>
+        <a class="logo" href='../index.php' >Magazin</a>
         <nav class='reg'>
 
             <?php
@@ -32,7 +32,7 @@ session_start();
                 echo '<a href="aut.php">signup</a>';
                 echo '<a href="register.php">signin</a>';
             }else {
-                echo "<a href='..\index.php' class=exit> главная</a>";
+                echo "<a href='../index.php' class=exit> главная</a>";
                 echo "<div class=exit><a class=exit href=aut.php>$_SESSION[login]</a><form action=''method='post' ><input  type=submit name=exit value=выйти></form></div>";
             }
             if (isset($_POST['exit'])) {
@@ -53,8 +53,7 @@ session_start();
                 $view->show();
                 if(is_numeric($_SERVER['REQUEST_URI'][-1])){
                     $view->delete($_SERVER['REQUEST_URI'][-1], $_SESSION['login']);
-                    header('Location: ../verstka/basket.php');
-                    
+                    header('Location: ../verstka/basket.php');                  
                 }
         }
             ?>
