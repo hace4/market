@@ -18,7 +18,6 @@ class show_basket{
             $Products_lis_goodview = $this->bas_db->get_product_with_id($this->products_list[$i]['id_prod'])[0];
             $name = stristr($Products_lis_goodview['name'], '^', true);
             $id = $this->products_list[$i]['id_prod'];
-            print_r($Products_lis_goodview); 
             echo "<div class='content3'>" 
             ."<img src='$this->PATH"."$Products_lis_goodview[img]'height='200px'>"
             ."<p class='about'> $name </p>"
