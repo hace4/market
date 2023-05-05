@@ -51,9 +51,17 @@ session_start();
                 require_once "../modules\basket_viiew.php";
                 $view = new show_basket($_SESSION['login']);
                 $view->show();
+                preg_match_all('!\d+!', stristr($_SERVER['REQUEST_URI'], '%', false), $numbers);
+                $number = $numbers[0];
                 if(is_numeric($_SERVER['REQUEST_URI'][-1])){
                     $view->delete($_SERVER['REQUEST_URI'][-1], $_SESSION['login']);
                     header('Location: ../verstka/basket.php');                  
+                }if($_SERVER['REQUEST_URI'][-1] == '+'){
+                    $view->plus($number[0], $_SESSION['login']);              
+                    header('Location: ../verstka/basket.php');       
+                }if($_SERVER['REQUEST_URI'][-1] == '-'){
+                    $view->minus($number[0], $_SESSION['login']);           
+                    header('Location: ../verstka/basket.php');        
                 }
         }
             ?>

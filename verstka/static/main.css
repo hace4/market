@@ -108,7 +108,6 @@ img {
   animation-duration: 5s;
 }
 
-
 @keyframes slide {
   0% {
     transform: translateX(-25%);

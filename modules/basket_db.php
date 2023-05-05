@@ -44,4 +44,14 @@ class basket_db extends basket_db_in_index{
 
         return $stmt->rowCount();
     }
+    public function plus_Products($id_prod, $login)
+    {
+        $this->db->query("UPDATE  `basket` SET `count` =  `count` + 1  WHERE `id_prod` = '$id_prod' AND `login` ='$login'");
+
+
+    }
+    public function minus_Products($id_prod, $login)
+    {
+        $this->db->query("UPDATE  `basket` SET `count` =  `count` - 1  WHERE `id_prod` = '$id_prod' AND `login` ='$login'");
+    }
 } ?>
