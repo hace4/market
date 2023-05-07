@@ -30,7 +30,6 @@ class show_basket{
             ."<a href='?cart=add&id=%$id-'data-id=%->-</a>"
             ."<p class='about1'>$this->count </p>"
             ."<a href='?cart=add&id=%$id+'data-id=%+>+</a>"
-            ."<button>Заказать</button>"
             ."</div>";
 
         }

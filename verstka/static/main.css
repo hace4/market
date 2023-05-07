@@ -117,7 +117,18 @@ img {
     transform: translateX(25%);
   }
 }
-
+.btn {
+  align-self: flex-end;}
+.btn input{
+  align-self: flex-end;
+  background: #bababa75;
+}
+.btn input:hover{
+  background: #34343475;
+}
+.btn{
+  border: 0ch;
+}
 .conten1 {
   display: flex;
   flex-wrap: wrap;

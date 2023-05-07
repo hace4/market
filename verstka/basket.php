@@ -38,24 +38,32 @@ session_start();
             if (isset($_POST['exit'])) {
                 unset($_SESSION['login']);
             } ?>
-
+        <form class='btn' method='POST' action='basket.php'><input class='btn' type='submit'  name="submit" value="Заказать"></input></form>
         </nav>
 
 
-    </div>
+    </div>   
+    
     </header>
     <main>
+
         <div class="conten4">
-            <?php
+            <?php     
+            if(isset($_POST['submit'])){
+                require_once "../modules\send_product_on_email.php";
+                $send = new send_product_on_email($_SESSION['login']);
+                $send->send();  
+                header('Location: ../verstka/basket.php');      
+            }                       
             if(isset($_SESSION['login'])){
-                require_once "../modules\basket_viiew.php";
+                require_once "../modules\show_basket.php";
                 $view = new show_basket($_SESSION['login']);
                 $view->show();
                 preg_match_all('!\d+!', stristr($_SERVER['REQUEST_URI'], '%', false), $numbers);
                 $number = $numbers[0];
                 if(is_numeric($_SERVER['REQUEST_URI'][-1])){
                     $view->delete($_SERVER['REQUEST_URI'][-1], $_SESSION['login']);
-                    header('Location: ../verstka/basket.php');                  
+             
                 }if($_SERVER['REQUEST_URI'][-1] == '+'){
                     $view->plus($number[0], $_SESSION['login']);              
                     header('Location: ../verstka/basket.php');       
@@ -65,7 +73,10 @@ session_start();
                 }
         }
             ?>
+        
         </div>
+
+        
     </main>
 </body>
 </html>
