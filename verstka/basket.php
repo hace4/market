@@ -52,8 +52,7 @@ session_start();
             if(isset($_POST['submit'])){
                 require_once "../modules\send_product_on_email.php";
                 $send = new send_product_on_email($_SESSION['login']);
-                $send->send();  
-                header('Location: ../verstka/basket.php');      
+                $send->send();       
             }                       
             if(isset($_SESSION['login'])){
                 require_once "../modules\show_basket.php";

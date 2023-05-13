@@ -5,7 +5,7 @@ class basket_db_in_index{
     {
         $this->db = new PDO("sqlite:MARKET_db.db");
     }
-    public function get_product($login)
+    public function get_product_id($login)
     {
         $result = $this->db->query("SELECT * FROM `basket` WHERE `login` ='$login'")->fetchAll(PDO::FETCH_ASSOC);
         return $result;

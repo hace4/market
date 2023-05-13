@@ -10,7 +10,7 @@ class show_basket{
         $this->PATH='../';
 
         $this->bas_db = new basket_db();
-        $this->products_list = $this->bas_db->get_product($login);
+        $this->products_list = $this->bas_db->get_product_id($login);
         $this->count=1;
     }
 
