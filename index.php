@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "config.php"
+require_once "config.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +12,7 @@ require_once "config.php"
     <link rel="stylesheet" href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css'>
     <link rel="stylesheet" href="verstka\static\main.css">
     <link rel="shortcut icon" href="img/favonic.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <title>SHMSHOP</title>
 </head>
 
@@ -54,20 +55,43 @@ require_once "config.php"
             </div>
         </header>
         <h2 class=typing>Главная страница</h2>
-        <div class="conten1">
+        <div class="live_search">
+            <input type="text" id="get_name" placeholder="search">
+        </div>    
+
+        <div class="conten1" id='main'>
             <?php
             require_once 'modules/index_view.php';
             require_once 'modules/basket_db.php';
             $bask = new basket_db_in_index();
             $show = new show_products($_SESSION['login']);
-            $show->show();
+            $show->show();                
+            preg_match_all('!\d+!', stristr($_SERVER['REQUEST_URI'], '%', false), $numbers);
+            $number = $numbers[0];
+
             if(is_numeric($_SERVER['REQUEST_URI'][-1])){
-                $bask->add_products_to($_SERVER['REQUEST_URI'][-1], $_SESSION['login']); 
-                header('Location: index.php');               
+                $bask->add_products_to($number[0], $_SESSION['login']);      
+                header('Location: index.php');        
             }
             ?>
         </div>
-    </main>
+    </main>   
+          <script>
+            $(document).ready(function(){
+                $("#get_name").keypress(function(){
+                    $.ajax({
+                        type:'POST',
+                        url:'searchajax.php',
+                        data:{
+                            name:$("#get_name").val(),
+                        },
+                        success:function(data){
+                            $('#main').html(data);
+                        }
+                    })
+                });
+            });
+            </script>
 </body>
 
 </html>

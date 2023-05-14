@@ -26,7 +26,7 @@ class show_basket{
             ."<p class='about'> $name </p>"
             ."<p class='about1'>$Products_lis_goodview[cost] rub </p>"
             ."<p class='about'>$Products_lis_goodview[about]</p>"
-            ."<a href='?cart=add&id=$id'data-id=$id>Удалить</a>"
+            ."<a href='?cart=add&id=%$id'data-id=%$id>Удалить</a>"
             ."<a href='?cart=add&id=%$id-'data-id=%->-</a>"
             ."<p class='about1'>$this->count </p>"
             ."<a href='?cart=add&id=%$id+'data-id=%+>+</a>"

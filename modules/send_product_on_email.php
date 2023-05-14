@@ -12,7 +12,7 @@ private $headers;
 public function __construct($login)
 {
     $this->prod = new basket_db();
-    $this->prod_mail = $this->prod->get_product($login);
+    /*$this->prod_mail = $this->prod->get_product($login);*/
     $this->from = "shmelkov03012006@gmail.com";
     $this->to = "mai.shmelkovda@gmail.com";
     $this->subject = "Checking PHP mail";

@@ -40,6 +40,11 @@ class database_products
         $result = $this->db->query("SELECT * FROM `products`")->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+    public function get_product_with_name($name)
+    {
+        $result = $this->db->query("SELECT * FROM `products` WHERE name LIKE '$name%'")->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 
     public function add_products($name, $cost, $about, $foto)
     {

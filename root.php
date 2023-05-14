@@ -67,7 +67,7 @@ if ($_SESSION['login'] != 'root') {
         <?php
 
         require_once 'modules/index_view.php';
-        $show = new show_products();
+        $show = new show_products($_SESSION['login']);
         if (isset($_POST['show_tovar_on_page'])) {
             $show->root_show();
         } else if (isset($_POST['hide_tovar'])) {

@@ -61,7 +61,21 @@ body {
   font-size: large;
   min-height: 100vh;
 }
-
+.live_search{
+  width:auto;
+  display: flex;
+  justify-content: end;
+}
+.live_search input{
+  border-color: rgb(57, 57, 57);
+  border-width: 0.2px;
+  background: #e3e3e39e;
+  border-radius: 2px;
+}
+.live_search input:hover{
+  background: #eaeaea;
+  border-radius: 2px;
+}
 .bg {
   animation: slide 10s ease-in-out infinite alternate;
   background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
@@ -160,7 +174,6 @@ img {
   visibility: hidden;
   opacity: 0;
   transition: opacity 1s linear;
-
 }
 
 .content2:hover p {
@@ -169,8 +182,15 @@ img {
   opacity: 1;
   transition: 1s;
 }
-
+.content2 a {
+  visibility: hidden;
+  opacity: 0;
+  margin-top: 20px;
+  background-color: #d2d0d07e;
+  transition: 1s;
+}
 .content2:hover a {
+  visibility: visible;
   opacity: 1;
   margin-top: 20px;
   background-color: #d2d0d07e;
