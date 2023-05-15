@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once "../config.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,7 @@ session_start();
             <?php
             if (isset($_SESSION['login'])) {
                 if ($_SESSION['login'] == 'root') {
-                    echo "<a href='root.php'> админка <a/>";
+                    echo "<a href='../root.php'> админка <a/>";
                 }
             }
             ?> <?php
@@ -74,7 +74,9 @@ session_start();
                     $view->minus($number[0], $_SESSION['login']);
                     header('Location: ../verstka/basket.php');
                 }
-                $view->show();
+                if($view->show() == 0){
+                    $view->delete($number[0], $_SESSION['login']);
+                }
                 preg_match_all('!\d+!', stristr($_SERVER['REQUEST_URI'], '%', false), $numbers);
                 $number = $numbers[0];
             }

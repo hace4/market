@@ -11,7 +11,6 @@ class show_basket{
 
         $this->bas_db = new basket_db();
         $this->products_list = $this->bas_db->get_product_id($login);
-        $this->count=1;
     }
 
     public function show()
@@ -31,7 +30,7 @@ class show_basket{
             ."<p class='about1'>$this->count </p>"
             ."<a href='?cart=add&id=%$id+'data-id=%+>+</a>"
             ."</div>";
-
+            return $this->count;
         }
     }
     public function delete($id, $login){

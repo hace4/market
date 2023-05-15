@@ -30,13 +30,16 @@ class show_products
         }
         }
     }
+    private function mb_ucfirst($str) {
+        return mb_strtoupper(mb_substr($str, 0, 1)) . mb_substr($str, 1);
+    }
     public function show()
     {
         for ($i = 0; $i < count($this->products_list); $i++) {
             $Products_lis_goodview = $this->products_list[$i];
-            $name = stristr($Products_lis_goodview['name'], '^', true);
-            $_SESSION['basket_produxt_id'] = $Products_lis_goodview['id'];
+            $name = $this->mb_ucfirst(stristr($Products_lis_goodview['name'], '^', true));
             echo "<div class='content2'>" 
+
             ." <img src='$this->PATH"."$Products_lis_goodview[img]'height='200px' align='top'> <p> $name </p> <p>$Products_lis_goodview[cost] rub </p> <p>$Products_lis_goodview[about]</p>";
             if(!in_array($Products_lis_goodview['id'], $this->id_prod_massive)){
                 echo "<a href='?cart=add&id=%$Products_lis_goodview[id]'data-id=%$Products_lis_goodview[id]>Купить</a>";
@@ -51,17 +54,17 @@ class show_products
 
         }
     }
+    /*Создать класс*/
     public function search_result($name){
         $search_list = $this->db->get_product_with_name($name); 
 
         for ($i = 0; $i < count($search_list); $i++) {
             $Products_lis_goodview = $search_list[$i];
-            $name = stristr($Products_lis_goodview['name'], '^', true);
-            $_SESSION['basket_produxt_id'] = $Products_lis_goodview['id'];
+            $name = $this->mb_ucfirst(stristr($Products_lis_goodview['name'], '^', true));
             echo "<div class='content2'>" 
             ." <img src='$this->PATH"."$Products_lis_goodview[img]'height='200px' align='top'> <p> $name </p> <p>$Products_lis_goodview[cost] rub </p> <p>$Products_lis_goodview[about]</p>";
 
-            if(empty($this->products_list1[$i]) or !in_array($search_list[$i]['id'], $this->id_prod_massive)){
+            if(!in_array($Products_lis_goodview['id'], $this->id_prod_massive)){
                 echo "<a href='?cart=add&id=%$Products_lis_goodview[id]'data-id=%$Products_lis_goodview[id]>Купить</a>";
             }
             else{
@@ -73,7 +76,9 @@ class show_products
             echo"</div>";
 
     }
+    return $search_list;
 }
+/*Создать класс*/
     public function root_show()
     {   
         for ($i = count($this->products_list)-1; $i >= 0; $i--) {
