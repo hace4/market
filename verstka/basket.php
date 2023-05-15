@@ -12,6 +12,7 @@ require_once '../config.php';
 <link rel = 'stylesheet' href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css'>
 <link rel = 'stylesheet' href = 'static\main.css'>
 <link rel = 'shortcut icon' href = 'img/favonic.ico' type = 'image/x-icon'>
+
 <title>корзина</title>
 </head>
 
@@ -61,6 +62,7 @@ $number = $numbers[ 0 ];
 if ( isset( $_POST[ 'submit' ] ) ) {
     $send->send();
 }
+/*переделать на ajax постояные обновления страницы бесят */
 if ( isset( $_SESSION[ 'login' ] ) ) {
     if ( is_numeric( $_SERVER[ 'REQUEST_URI' ][ -1 ] ) ) {
         $view->delete( $number[ 0 ], $_SESSION[ 'login' ] );
@@ -74,9 +76,7 @@ if ( isset( $_SESSION[ 'login' ] ) ) {
         $view->minus( $number[ 0 ], $_SESSION[ 'login' ] );
         header( 'Location: ../verstka/basket.php' );
     }
-    if ( $view->show() == 0 ) {
-        $view->delete( $number[ 0 ], $_SESSION[ 'login' ] );
-    }
+    $view->show();
     preg_match_all( '!\d+!', stristr( $_SERVER[ 'REQUEST_URI' ], '%', false ), $numbers );
     $number = $numbers[ 0 ];
 }

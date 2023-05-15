@@ -6,6 +6,7 @@ class show_basket {
     private $products_list;
     private $PATH;
     public $count;
+    private $login;
 
     public function __construct( $login )
  {
@@ -16,6 +17,7 @@ class show_basket {
 
         $this->bas_db = new basket_db();
         $this->products_list = $this->bas_db->get_product_id( $login );
+        $this->login = $login ;
     }
 
     public function show()
@@ -26,6 +28,7 @@ class show_basket {
             $name = stristr( $Products_lis_goodview[ 'name' ], '^', true );
             $id = $this->products_list[ $i ][ 'id_prod' ];
             $this->count = $this->products_list[ $i ][ 'count' ];
+            $this->count_check( $id, $this->count );
             echo "<div class='content3'>"
             ."<img src='$this->PATH"."$Products_lis_goodview[img]'height='200px'>"
             ."<p class='about'> $name </p>"
@@ -36,7 +39,15 @@ class show_basket {
             ."<p class='about1'>$this->count </p>"
             ."<a href='?cart=add&id=%$id+'data-id=%+>+</a>"
             .'</div>';
-            return $this->count;
+
+        }
+
+    }
+
+    private function count_check( $id, $count ) {
+        if ( $count == 0 ) {
+            $this->delete( $id, $this->login );
+            header( 'Location: ../verstka/basket.php' );
         }
     }
 

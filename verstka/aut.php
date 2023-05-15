@@ -11,6 +11,7 @@ require_once '../config.php' ?>
 <link rel = 'stylesheet' href = 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
 <link rel = 'shortcut icon' href = 'img/favonic.ico' type = 'image/x-icon'>
 <link rel = 'stylesheet' href = 'static/style.css'>
+<script src = 'https://unpkg.com/swup@3'></script>
 <title>Document</title>
 </head>
 
@@ -27,8 +28,7 @@ require_once '../config.php' ?>
 
 </div>
 </header>
-<main>
-<header>
+<main id = 'swup' class = 'transition-fade'>
 
 <div class = 'regist'>
 <h1><b>Авторизация</b></h1>
@@ -39,12 +39,14 @@ $_SESSION[ 'message' ] = '' ?>
 
 <input class = 'form-control' type = 'text' name = 'password' placeholder = 'password'><br>
 
-<button class = 'btn' type = 'submit'><b>Войти</b></button>
+<button class = 'btn' type = 'submit' ><b>Войти</b></button>
 
 </form>
 
 </div>
 
 </main>
+<script>const swup = new Swup();
+</script>
 </body>
 </html>

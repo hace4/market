@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "config.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,9 +19,7 @@ require_once "config.php";
 <body>
     <div class="bg"></div>
     <div class="bg bg2"></div>
-    <div class="bg bg3"></div>
-    <main>
-        <header>
+    <div class="bg bg3"></div><header>
             <div class="top-info">
 
 
@@ -52,9 +50,12 @@ require_once "config.php";
 
 
 
-            </div>
+            </div>    
+            <h2 class=typing>Главная страница</h2>
         </header>
-        <h2 class=typing>Главная страница</h2>
+    <main>
+        
+
         <div class="live_search">
             <input type="text" id="get_name" placeholder="search">
         </div>    

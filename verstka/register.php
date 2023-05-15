@@ -13,6 +13,9 @@ require_once '../config.php';
 <link rel = 'stylesheet' href = 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
 <link rel = 'shortcut icon' href = 'img/favonic.ico' type = 'image/x-icon'>
 <link rel = 'stylesheet' href = 'static/style.css'>
+<script src = 'https://unpkg.com/swup@3'></script>
+<script>const swup = new Swup();
+</script>
 <title>Document</title>
 </head>
 
@@ -29,7 +32,7 @@ require_once '../config.php';
 <div class = 'bg'></div>
 <div class = 'bg bg2'></div>
 <div class = 'bg bg3'></div>
-<main>
+<main id = 'swup' class = 'transition-fade'>
 <div class = 'regist'>
 <h1><b>Регистрация</b></h1>
 <form action = '..\modules\checker.php' method = 'post'>
