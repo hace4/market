@@ -34,7 +34,7 @@ require_once '../config.php' ?>
 <h1><b>Авторизация</b></h1>
 <?php echo $_SESSION[ 'message' ];
 $_SESSION[ 'message' ] = '' ?>
-<form action = '../modules/aut._checker.php' method = 'post'>
+<form action = '../modules/aut_checker.php' method = 'post'>
 <input class = 'form-control' type = 'text' name = 'login' placeholder = 'login'><br>
 
 <input class = 'form-control' type = 'text' name = 'password' placeholder = 'password'><br>

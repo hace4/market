@@ -6,13 +6,13 @@ class show_products
     protected $products_list;
     protected $PATH;
     private $bas_db;
-    private $products_list1;
     private         $id_prod_massive;
+    private $login;
 
     public function __construct( $login )
  {
         $this->id_prod_massive = [];
-        $login = $login;
+        $this->login = $login;
         $this->PATH = '';
         require_once 'modules/db.php';
         require_once 'modules/basket_db.php';
@@ -45,9 +45,9 @@ class show_products
             echo "<div class='content2'>"
 
             ." <img src='$this->PATH"."$Products_lis_goodview[img]'height='200px' align='top'> <p> $name </p> <p>$Products_lis_goodview[cost] rub </p> <p>$Products_lis_goodview[about]</p>";
-            if ( !in_array( $Products_lis_goodview[ 'id' ], $this->id_prod_massive ) ) {
+            if ( !in_array( $Products_lis_goodview[ 'id' ], $this->id_prod_massive ) and !empty( $this->login ) ) {
                 echo "<a href='?cart=add&id=%$Products_lis_goodview[id]'data-id=%$Products_lis_goodview[id]>Купить</a>";
-            } else {
+            } else if ( !empty( $this->login ) ){
                 echo '<a>товар в корзине</a>';
 
             }
@@ -68,9 +68,9 @@ class show_products
             echo "<div class='content2'>"
             ." <img src='$this->PATH"."$Products_lis_goodview[img]'height='200px' align='top'> <p> $name </p> <p>$Products_lis_goodview[cost] rub </p> <p>$Products_lis_goodview[about]</p>";
 
-            if ( !in_array( $Products_lis_goodview[ 'id' ], $this->id_prod_massive ) ) {
+            if ( !in_array( $Products_lis_goodview[ 'id' ], $this->id_prod_massive ) and !empty( $this->login ) ) {
                 echo "<a href='?cart=add&id=%$Products_lis_goodview[id]'data-id=%$Products_lis_goodview[id]>Купить</a>";
-            } else {
+            } else  if ( !empty( $this->login ) ) {
                 echo '<a>товар в корзине</a>';
 
             }

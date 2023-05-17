@@ -19,6 +19,7 @@ class aut_checker
 
     private function Availability_check()
  {
+        /* Проверка на заполненость полей */
         if ( !empty( $this->login ) and !empty( $this->password ) ) {
             return true;
         } else {
@@ -28,6 +29,8 @@ class aut_checker
 
     private function correctness_login_check()
  {
+
+        /* проверка на коректность сравнение введеного с значинем в бд ДЛЯ ПАРОЛЯ */
         if ( $this->Availability_check() ) {
 
             if ( $this->result[ 0 ] == $this->login ) {
@@ -40,6 +43,7 @@ class aut_checker
 
     private function correctness_password_check()
  {
+        /* проверка на коректность сравнение введеного с значинем в бд ДЛЯ ПАРОЛЯ */
         if ( $this->result[ 1 ] == $this->password ) {
             return true;
         } else {
@@ -49,6 +53,7 @@ class aut_checker
 
     public function check()
  {
+        /*Общая проверка */
         if ( $this->correctness_password_check() and $this->correctness_login_check() ) {
             header( 'Location: ../index.php' );
             $_SESSION[ 'login' ] = $this->result[ 0 ];
