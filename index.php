@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once 'config.php';
+require_once 'modules/show_products.php';
+require_once 'modules/basket_db.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,8 +64,6 @@ require_once 'config.php';
 
         <div class="conten1" id='main'>
             <?php
-            require_once 'modules/show_products.php';
-            require_once 'modules/basket_db.php';
             $bask = new basket_db_in_index();
             $show = new show_products($_SESSION['login']);
             $show->show();                
