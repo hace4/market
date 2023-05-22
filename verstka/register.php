@@ -35,7 +35,7 @@ require_once '../config.php';
 <main id = 'swup' class = 'transition-fade'>
 <div class = 'regist'>
 <h1><b>Регистрация</b></h1>
-<form action = '..\modules\checker.php' method = 'post'>
+<form action = '..\modules\reg_checker.php' method = 'post'>
 
 <input class = 'form-control' type = 'text' name = 'name' placeholder = 'your name'> <br>
 

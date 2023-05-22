@@ -3,7 +3,7 @@
 session_start();
 require_once '../modules/db.php';
 
-class reg_check
+class reg_checker
  {
     private $db;
     private $login;
@@ -64,6 +64,6 @@ class reg_check
         }
     }
 }
-$regist = new reg_check();
+$regist = new reg_checker();
 $regist->regist_user();
 ?>
